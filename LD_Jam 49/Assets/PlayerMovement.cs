@@ -22,13 +22,6 @@ public class PlayerMovement : MonoBehaviour {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        if (moveX != 0) {
-        print("MoveX: " + moveX);
-
-        }
-        if (moveY != 0 ) {
-        print("MoveY: " + moveY);
-        }
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
