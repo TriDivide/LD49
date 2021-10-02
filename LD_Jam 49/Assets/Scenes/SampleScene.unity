@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8189880753824231719}
+    - target: {fileID: 302932116117458478, guid: 6a5542e33e1bb61438b42003624f2b7d, type: 3}
+      propertyPath: passiveDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3521799822405140577, guid: 6a5542e33e1bb61438b42003624f2b7d, type: 3}
       propertyPath: m_RootOrder
       value: 1
