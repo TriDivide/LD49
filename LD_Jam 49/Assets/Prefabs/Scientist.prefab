@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 302932116117458478}
   - component: {fileID: 1480952514}
   - component: {fileID: 1480952518}
+  - component: {fileID: 2293096227258468606}
   m_Layer: 0
   m_Name: Scientist
   m_TagString: Untagged
@@ -167,3 +168,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &2293096227258468606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521799822405140578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c427abdf21669094481a13a905f1040e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 3867873780101140448, guid: 552cc8168babd4540b5d9658c9be3c72, type: 3}
