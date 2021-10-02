@@ -20,8 +20,17 @@ public class ScientistMovement : MonoBehaviour {
         Move();
     }
 
-    private void HandlePlayerPosition() {
+    void OnTriggerStay2D() {
 
+        float y =  (player.transform.position.y > transform.position.y) ? -1f : 1;
+        
+        float x = (player.transform.position.x > transform.position.x) ? -1f : 1;
+        
+        moveDirection = new Vector2(x, y).normalized;
+    }
+
+    void OnTriggerExit2D() {
+        moveDirection = new Vector2(0, 0);
     }
 
     private void Move() {
