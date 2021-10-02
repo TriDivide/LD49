@@ -123,6 +123,8 @@ MonoBehaviour:
   rigidBody: {fileID: 3521799822405140579}
   movementSpeed: 3
   player: {fileID: 0}
+  passiveStationaryDuration: 1
+  passiveMovingDuration: 0.5
 --- !u!61 &1480952514
 BoxCollider2D:
   m_ObjectHideFlags: 0
