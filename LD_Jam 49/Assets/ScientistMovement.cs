@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScientistMovement : MonoBehaviour {
 
     public Rigidbody2D rigidBody;
     public float movementSpeed = 5f;
-    public GameObject player;
     private Vector2 moveDirection;
 
     private bool isPassive = true;
@@ -17,41 +15,42 @@ public class ScientistMovement : MonoBehaviour {
 
     private bool startPassiveMovement = true;
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
+
 
     void FixedUpdate() {
         Move();
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-
-        isPassive = false;
+        if (collision.gameObject.tag == "Player") {
+            print("passive movement is false");
+            isPassive = false;
+        }
     }
 
-    void OnTriggerStay2D() {
-
-        float y =  (player.transform.position.y > transform.position.y) ? -1f : 1;
-        
-        float x = (player.transform.position.x > transform.position.x) ? -1f : 1;
-        
-        moveDirection = new Vector2(x, y).normalized;
+    void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null) {
+                float y =  (player.transform.position.y > transform.position.y) ? -1f : 1;
+                float x = (player.transform.position.x > transform.position.x) ? -1f : 1;
+                moveDirection = new Vector2(x, y).normalized;
+            }
+        }
     }
 
-    void OnTriggerExit2D() {
-
-        isPassive = true;
-        moveDirection = new Vector2(0, 0);
-        startPassiveMovement = true;
+    void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            isPassive = true;           
+            moveDirection = new Vector2(0, 0);
+            startPassiveMovement = true;
+        }
     }
 
     private void Move() {
         if (!isPassive) {
             StopAllCoroutines();
-            rigidBody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
-            
+            rigidBody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);  
         }
         else {
             if (startPassiveMovement) {
@@ -70,7 +69,6 @@ public class ScientistMovement : MonoBehaviour {
 
             while (lmd == lastMovementDirection) {
                 int m = Random.Range(0, 3);
-                print(m);
                 lmd = (Direction)m;
                 yield return null;
             }
@@ -86,9 +84,9 @@ public class ScientistMovement : MonoBehaviour {
                 }
 
                 while(elapsedTime < passiveMovingDuration) {
-                        rigidBody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
-                        elapsedTime += Time.deltaTime;
-                        yield return null;
+                    rigidBody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
                 }
                 doPassiveMove = false;
                 
