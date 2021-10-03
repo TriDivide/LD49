@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour {
 
@@ -9,6 +10,15 @@ public class HealthController : MonoBehaviour {
     public Text healthText;
 
     private bool isStable = false;
+
+    private bool hasDied = false;
+
+    private SpriteRenderer spriteRenderer;
+    public Sprite blood;
+
+    public void Start() {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
 
     public void Update() {
         UpdateHealth();
@@ -24,6 +34,15 @@ public class HealthController : MonoBehaviour {
             else {
                 playerHealth = 0;
                 healthText.text = "ah, you dead.";
+
+                if (!hasDied) {
+                    hasDied = true;
+                        spriteRenderer.sprite = blood;
+                        PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
+                        Destroy(movementScript);
+                        Invoke("GameOver", 10);
+                    
+                }
             }
         }
         else {
@@ -43,6 +62,11 @@ public class HealthController : MonoBehaviour {
         if (collision.gameObject.name == "healthZone") {
             isStable = true;   
         }   
+    }
+
+    private void GameOver() {
+        SceneManager.LoadScene (sceneName:"GameOver");
+
     }
 
     public void OnTriggerExit2D(Collider2D collision) {
