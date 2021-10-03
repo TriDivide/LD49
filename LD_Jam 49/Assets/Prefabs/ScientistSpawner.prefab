@@ -47,6 +47,7 @@ MonoBehaviour:
   spawnObject: {fileID: 3521799822405140578, guid: 6a5542e33e1bb61438b42003624f2b7d, type: 3}
   tagRef: Scientist
   maxNumberInScene: 10
+  spawnRate: 10
 --- !u!212 &6139940216464948018
 SpriteRenderer:
   m_ObjectHideFlags: 0

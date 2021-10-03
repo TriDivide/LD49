@@ -267,6 +267,7 @@ MonoBehaviour:
   maxHealth: 100
   blood: {fileID: 21300000, guid: 33719fd8bf56a14448a4840980a176da, type: 3}
   deathWait: 2
+  underAttack: 0
 --- !u!114 &8189880753824231727
 MonoBehaviour:
   m_ObjectHideFlags: 0
