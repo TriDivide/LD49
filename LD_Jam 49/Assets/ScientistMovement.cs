@@ -32,8 +32,8 @@ public class ScientistMovement : MonoBehaviour {
         if (collision.gameObject.tag == "Player") {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null) {
-                float y =  (player.transform.position.y > transform.position.y) ? -1f : 1;
-                float x = (player.transform.position.x > transform.position.x) ? -1f : 1;
+                float y =  (player.transform.position.y > transform.position.y) ? -1f : 1f;
+                float x = (player.transform.position.x > transform.position.x) ? -1f : 1f;
                 moveDirection = new Vector2(x, y).normalized;
             }
         }
