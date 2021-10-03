@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 1163927851}
   - component: {fileID: 1163927850}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2191,6 +2191,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8189880752374191817, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
   m_PrefabInstance: {fileID: 8189880753824231718}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8189880753824231720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189880753824231719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51fd9f2060827143bab01541ecff4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 1163927850}
 --- !u!114 &8189880753824231725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1980b4c68f1572488a3730bae122b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 20
-  healthText: {fileID: 1163927850}
+  playerHealth: 100
+  healthText: {fileID: 1455740943}
   blood: {fileID: 21300000, guid: 33719fd8bf56a14448a4840980a176da, type: 3}

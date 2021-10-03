@@ -10,11 +10,13 @@ public class SpawnNPC : MonoBehaviour
     public int maxNumberInScene = 10;
     private int npcsInScene = 0;
 
+    public float spawnRate = 10f;
+
     
 
     // Start is called before the first frame update
     void Start() {
-        InvokeRepeating("Spawn", 30f, 30f);
+        InvokeRepeating("Spawn", spawnRate, spawnRate);
     }
 
     // Update is called once per frame
