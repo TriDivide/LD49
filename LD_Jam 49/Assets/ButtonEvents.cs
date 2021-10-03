@@ -13,4 +13,8 @@ public class ButtonEvents : MonoBehaviour
     public void restartGame() {
         SceneManager.LoadScene (sceneName:"SampleScene");
     }
+
+    public void startGame() {
+        SceneManager.LoadScene (sceneName: "SampleScene");
+    }
 }
