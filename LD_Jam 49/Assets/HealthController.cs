@@ -15,6 +15,7 @@ public class HealthController : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
     public Sprite blood;
+    public int deathWait = 5;
 
     public void Start() {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -29,7 +30,7 @@ public class HealthController : MonoBehaviour {
             if(playerHealth > 0) { 
                 playerHealth = playerHealth - 0.01;        
 
-                healthText.text = playerHealth.ToString("0");
+                healthText.text = playerHealth.ToString("0") + "%";
             }
             else {
                 playerHealth = 0;
@@ -39,8 +40,10 @@ public class HealthController : MonoBehaviour {
                     hasDied = true;
                         spriteRenderer.sprite = blood;
                         PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
+                        Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
+                        rigidBody.velocity = new Vector2(0, 0);
                         Destroy(movementScript);
-                        Invoke("GameOver", 10);
+                        Invoke("GameOver", deathWait);
                     
                 }
             }
@@ -49,7 +52,7 @@ public class HealthController : MonoBehaviour {
             if(playerHealth < 100) { 
                 playerHealth = playerHealth + 0.1;        
 
-                healthText.text = playerHealth.ToString("0");
+                healthText.text = playerHealth.ToString("0") + "%";
             }
             else {
                 playerHealth = 100;

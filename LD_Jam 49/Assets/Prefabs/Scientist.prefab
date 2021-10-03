@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 3521799822405140579}
   movementSpeed: 3
-  player: {fileID: 8189880752374191817, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
+  player: {fileID: 0}
   passiveStationaryDuration: 1
   passiveMovingDuration: 0.5
 --- !u!61 &1480952514
