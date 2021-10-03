@@ -42,6 +42,8 @@ public class GuardMovement : MonoBehaviour {
         }
     }
 
+    
+
     private void Move() {
         if (!isPassive) {
             StopAllCoroutines();

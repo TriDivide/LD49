@@ -17,7 +17,7 @@ public class HealthController : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     public Sprite blood;
     public int deathWait = 5;
-
+    public bool underAttack = false;
     public void Start() {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -29,7 +29,7 @@ public class HealthController : MonoBehaviour {
     public void UpdateHealth() {
         if (!isStable) {
             if(playerHealth > 0) { 
-                playerHealth = playerHealth - 0.1;        
+                playerHealth = underAttack ? playerHealth - 0.5 : playerHealth - 0.1;        
 
                 healthText.text = playerHealth.ToString("0") + "%";
             }
@@ -39,12 +39,14 @@ public class HealthController : MonoBehaviour {
 
                 if (!hasDied) {
                     AudioSource ac = GetComponent<AudioSource>();
+
                     ac.Play();
                     hasDied = true;
                     spriteRenderer.sprite = blood;
                     PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
                     Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
                     rigidBody.velocity = new Vector2(0, 0);
+                    Destroy(rigidBody);
                     Destroy(movementScript);
                     Invoke("GameOver", deathWait);
                     
@@ -67,13 +69,28 @@ public class HealthController : MonoBehaviour {
     public void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.name == "healthZone") {
             isStable = true;   
-        }   
+        }
     }
 
     private void GameOver() {
         SceneManager.LoadScene (sceneName:"GameOver");
 
     }
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
+            print("under attack: " + underAttack);
+            underAttack = true;
+        } 
+    }
+
+    public void OnCollisionExit2D(Collision2D collision) {
+        if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
+            print("under attack: " + underAttack);
+            underAttack = false;
+        } 
+    }
+    
 
     public void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject.name == "healthZone") {
