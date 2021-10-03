@@ -8,6 +8,7 @@ public class HealthController : MonoBehaviour {
 
     public double playerHealth = 100;
     public Text healthText;
+    public double maxHealth = 100;
 
     private bool isStable = false;
 
@@ -21,14 +22,14 @@ public class HealthController : MonoBehaviour {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void Update() {
+    public void FixedUpdate() {
         UpdateHealth();
     }
 
     public void UpdateHealth() {
         if (!isStable) {
             if(playerHealth > 0) { 
-                playerHealth = playerHealth - 0.01;        
+                playerHealth = playerHealth - 0.1;        
 
                 healthText.text = playerHealth.ToString("0") + "%";
             }
@@ -37,26 +38,28 @@ public class HealthController : MonoBehaviour {
                 healthText.text = "ah, you dead.";
 
                 if (!hasDied) {
+                    AudioSource ac = GetComponent<AudioSource>();
+                    ac.Play();
                     hasDied = true;
-                        spriteRenderer.sprite = blood;
-                        PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
-                        Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
-                        rigidBody.velocity = new Vector2(0, 0);
-                        Destroy(movementScript);
-                        Invoke("GameOver", deathWait);
+                    spriteRenderer.sprite = blood;
+                    PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
+                    Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
+                    rigidBody.velocity = new Vector2(0, 0);
+                    Destroy(movementScript);
+                    Invoke("GameOver", deathWait);
                     
                 }
             }
         }
         else {
-            if(playerHealth < 100) { 
-                playerHealth = playerHealth + 0.1;        
+            if(playerHealth < maxHealth) { 
+                playerHealth = playerHealth + 0.5;        
 
                 healthText.text = playerHealth.ToString("0") + "%";
             }
             else {
-                playerHealth = 100;
-                healthText.text = "100";
+                playerHealth = maxHealth;
+                healthText.text = maxHealth.ToString("0") + "%";
             } 
         }
     }

@@ -31,7 +31,7 @@ public class SpawnNPC : MonoBehaviour
     }
 
     private void Spawn() {
-        if (npcsInScene <= 30) {
+        if (npcsInScene <= maxNumberInScene) {
             Instantiate(spawnObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
     }
