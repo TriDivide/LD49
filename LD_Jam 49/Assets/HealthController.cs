@@ -67,7 +67,7 @@ public class HealthController : MonoBehaviour {
     }
 
     public void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.name == "healthZone") {
+        if (collision.gameObject.tag == "HealthZone") {
             isStable = true;   
         }
     }
@@ -93,7 +93,7 @@ public class HealthController : MonoBehaviour {
     
 
     public void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.name == "healthZone") {
+        if (collision.gameObject.tag == "HealthZone") {
             isStable = false;
         }
     }
