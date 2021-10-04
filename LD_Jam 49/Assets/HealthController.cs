@@ -14,6 +14,9 @@ public class HealthController : MonoBehaviour {
 
     private bool hasDied = false;
 
+    public AudioSource painSound;
+    public AudioSource deathSound;
+
     private SpriteRenderer spriteRenderer;
     public Sprite blood;
     public int deathWait = 5;
@@ -38,9 +41,8 @@ public class HealthController : MonoBehaviour {
                 healthText.text = "0%";
 
                 if (!hasDied) {
-                    AudioSource ac = GetComponent<AudioSource>();
-
-                    ac.Play();
+                    Destroy(painSound);
+                    deathSound.Play();
                     hasDied = true;
                     spriteRenderer.sprite = blood;
                     PlayerMovement movementScript = gameObject.GetComponent<PlayerMovement>();
@@ -79,12 +81,14 @@ public class HealthController : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
+            painSound.Play();
             underAttack = true;
         } 
     }
 
     public void OnCollisionExit2D(Collision2D collision) {
         if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
+            painSound.Stop();
             underAttack = false;
         } 
     }

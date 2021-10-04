@@ -270,6 +270,8 @@ MonoBehaviour:
   playerHealth: 100
   healthText: {fileID: 0}
   maxHealth: 100
+  painSound: {fileID: 3919349376338809265}
+  deathSound: {fileID: 8189880753824231728}
   blood: {fileID: 21300000, guid: 33719fd8bf56a14448a4840980a176da, type: 3}
   deathWait: 2
   underAttack: 0
@@ -287,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradePoints: 0
   upgradeText: {fileID: 0}
+  warningText: {fileID: 0}
+  enhanceNotificationText: {fileID: 0}
+  upgradeButton: {fileID: 0}
 --- !u!82 &8189880753824231728
 AudioSource:
   m_ObjectHideFlags: 0
@@ -425,11 +430,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cead22cadb4d1014a816bcb8645e76de, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1bbcee4c932609e42a2dd74ec549964e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
