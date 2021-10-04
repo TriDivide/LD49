@@ -34,11 +34,11 @@ public class HealthController : MonoBehaviour {
             if(playerHealth > 0) { 
                 playerHealth = underAttack ? playerHealth - 0.3 : playerHealth - 0.08;        
 
-                healthText.text = playerHealth.ToString("0") + "%";
+                healthText.text = "Stability: " + playerHealth.ToString("0") + "%";
             }
             else {
                 playerHealth = 0;
-                healthText.text = "0%";
+                healthText.text = "Stability: 0%";
 
                 if (!hasDied) {
                     Destroy(painSound);
@@ -59,11 +59,11 @@ public class HealthController : MonoBehaviour {
             if(playerHealth < maxHealth) { 
                 playerHealth = playerHealth + 0.5;        
 
-                healthText.text = playerHealth.ToString("0") + "%";
+                healthText.text = "Stability: " + playerHealth.ToString("0") + "%";
             }
             else {
                 playerHealth = maxHealth;
-                healthText.text = maxHealth.ToString("0") + "%";
+                healthText.text = "Stability: " + maxHealth.ToString("0") + "%";
             } 
         }
     }

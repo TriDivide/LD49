@@ -14,7 +14,7 @@ public class ScoreController : MonoBehaviour {
         if (collision.collider.gameObject.tag == "Scientist") {
             score += 1;
             
-            scoreText.text = score.ToString("0");
+            scoreText.text = "Scientists dealt with: " + score.ToString("0");
         }
     }
 }

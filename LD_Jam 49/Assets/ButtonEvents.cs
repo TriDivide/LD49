@@ -28,7 +28,7 @@ public class ButtonEvents : MonoBehaviour
         Color unstableHealth = new Color(255f, 69f, 69f, 1f);
 
         if (s.upgradePoints >= 5) {
-            health.gameObject.GetComponent<Text>().color = unstableHealth; 
+           // health.gameObject.GetComponent<Text>().color = unstableHealth; 
             s.upgradePoints -= 5;
 
             PlayerMovement m = player.GetComponent<PlayerMovement>();

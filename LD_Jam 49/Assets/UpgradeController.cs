@@ -22,7 +22,7 @@ public class UpgradeController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        upgradeText.text = upgradePoints.ToString("0");
+        upgradeText.text = "DNA Aquired: " + upgradePoints.ToString("0");
 
         if (upgradePoints >= 5) {
             enhanceNotificationText.gameObject.SetActive(!touchingHealthZone);
