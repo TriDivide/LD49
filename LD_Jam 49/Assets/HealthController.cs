@@ -35,7 +35,7 @@ public class HealthController : MonoBehaviour {
             }
             else {
                 playerHealth = 0;
-                healthText.text = "ah, you dead.";
+                healthText.text = "0%";
 
                 if (!hasDied) {
                     AudioSource ac = GetComponent<AudioSource>();
