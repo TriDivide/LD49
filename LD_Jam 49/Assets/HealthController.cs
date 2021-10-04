@@ -32,7 +32,7 @@ public class HealthController : MonoBehaviour {
     public void UpdateHealth() {
         if (!isStable) {
             if(playerHealth > 0) { 
-                playerHealth = underAttack ? playerHealth - 0.1 : playerHealth - 0.05;        
+                playerHealth = underAttack ? playerHealth - 0.3 : playerHealth - 0.08;        
 
                 healthText.text = playerHealth.ToString("0") + "%";
             }
