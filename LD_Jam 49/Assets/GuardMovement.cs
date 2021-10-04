@@ -12,6 +12,14 @@ public class GuardMovement : MonoBehaviour {
     private bool doPassiveMove = true;
     private bool startPassiveMovement = true;
 
+    public Sprite stationary;
+    public Sprite left;
+    public Sprite right;
+
+    void Start() {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
+    private SpriteRenderer spriteRenderer;
     void FixedUpdate() {
         Move();
     }
@@ -29,6 +37,19 @@ public class GuardMovement : MonoBehaviour {
             if (player != null) {
                 float y =  (player.transform.position.y > transform.position.y) ? 1f : -1f;
                 float x = (player.transform.position.x > transform.position.x) ? 1f : -1f;
+
+                if (spriteRenderer != null) {
+                    print("setting the sprite of scientist.");
+                    if (x < 0) {
+                        spriteRenderer.sprite = left;
+                    }
+                    else if (x > 0) {
+                        spriteRenderer.sprite = right;
+                    }
+                    else {
+                        spriteRenderer.sprite = stationary;
+                    }
+                }
                 moveDirection = new Vector2(x, y).normalized;
             }
         }

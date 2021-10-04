@@ -212,6 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   rigidBody: {fileID: 8189880752374191831}
+  stationary: {fileID: 7388399842426930641, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
+  left: {fileID: 4334783836991956000, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
+  right: {fileID: 6757282713640645180, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
 --- !u!61 &8189880753824231720
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -166,3 +166,6 @@ MonoBehaviour:
   movementSpeed: 5
   passiveStationaryDuration: 1
   passiveMovingDuration: 0.5
+  stationary: {fileID: -6557464283307180578, guid: 77d1c80fbabca0043b621224eb7ae19d, type: 3}
+  left: {fileID: 8426817888908902439, guid: 77d1c80fbabca0043b621224eb7ae19d, type: 3}
+  right: {fileID: -9191970194228111346, guid: 77d1c80fbabca0043b621224eb7ae19d, type: 3}

@@ -15,8 +15,15 @@ public class ScientistMovement : MonoBehaviour {
 
     private bool startPassiveMovement = true;
 
+    public Sprite stationary;
+    public Sprite left;
+    public Sprite right;
 
+    private SpriteRenderer spriteRenderer;
 
+    void Start() {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
     void FixedUpdate() {
         Move();
     }
@@ -34,6 +41,18 @@ public class ScientistMovement : MonoBehaviour {
             if (player != null) {
                 float y =  (player.transform.position.y > transform.position.y) ? -1f : 1f;
                 float x = (player.transform.position.x > transform.position.x) ? -1f : 1f;
+
+                if (spriteRenderer != null) {
+                    if (x < 0) {
+                        spriteRenderer.sprite = left;
+                    }
+                    else if (x > 0) {
+                        spriteRenderer.sprite = right;
+                    }
+                    else {
+                        spriteRenderer.sprite = stationary;
+                    }
+                }
                 moveDirection = new Vector2(x, y).normalized;
             }
         }
