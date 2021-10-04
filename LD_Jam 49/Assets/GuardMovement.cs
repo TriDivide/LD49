@@ -94,6 +94,17 @@ public class GuardMovement : MonoBehaviour {
             lastMovementDirection = lmd;
 
             if (doPassiveMove) {
+                if (spriteRenderer != null) {
+                    if (moveDirection.x < 0) {
+                        spriteRenderer.sprite = left;
+                    }
+                    else if (moveDirection.x > 0) {
+                        spriteRenderer.sprite = right;
+                    }
+                    else {
+                        spriteRenderer.sprite = stationary;
+                    }
+                }
                 switch (lastMovementDirection) {
                     case Direction.Left: { moveDirection = new Vector2(-1, 0).normalized; break; }
                     case Direction.Right: { moveDirection = new Vector2(1, 0).normalized; break; }
@@ -110,6 +121,9 @@ public class GuardMovement : MonoBehaviour {
 
             }
             else {
+                if (spriteRenderer != null) {
+                    spriteRenderer.sprite = stationary;
+                }
                 while (elapsedTime < passiveStationaryDuration) {
                     rigidBody.velocity = new Vector2(0, 0);
                     elapsedTime += Time.deltaTime;

@@ -101,6 +101,17 @@ public class ScientistMovement : MonoBehaviour {
                     case Direction.Up: { moveDirection = new Vector2(0, 1).normalized; break; }
                     case Direction.Down: { moveDirection = new Vector2(0, -1).normalized; break; }
                 }
+                if (spriteRenderer != null) {
+                    if (moveDirection.x < 0) {
+                        spriteRenderer.sprite = left;
+                    }
+                    else if (moveDirection.x > 0) {
+                        spriteRenderer.sprite = right;
+                    }
+                    else {
+                        spriteRenderer.sprite = stationary;
+                    }
+                }
 
                 while(elapsedTime < passiveMovingDuration) {
                     rigidBody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
@@ -111,6 +122,9 @@ public class ScientistMovement : MonoBehaviour {
                 
             }
             else {
+                if (spriteRenderer != null) {
+                    spriteRenderer.sprite = stationary;
+                }
                 while(elapsedTime < passiveStationaryDuration) {
                     rigidBody.velocity = new Vector2(0, 0);
                     elapsedTime += Time.deltaTime;

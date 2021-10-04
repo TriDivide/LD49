@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 9051638173435750894}
-  movementSpeed: 5
+  movementSpeed: 4
   passiveStationaryDuration: 1
   passiveMovingDuration: 0.5
   stationary: {fileID: -6557464283307180578, guid: 77d1c80fbabca0043b621224eb7ae19d, type: 3}
