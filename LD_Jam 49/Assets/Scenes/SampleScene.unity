@@ -12877,6 +12877,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8189880752374191830, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
+      propertyPath: left
+      value: 
+      objectReference: {fileID: 4334783836991956000, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
+    - target: {fileID: 8189880752374191830, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
+      propertyPath: right
+      value: 
+      objectReference: {fileID: 6757282713640645180, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
+    - target: {fileID: 8189880752374191830, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
+      propertyPath: stationary
+      value: 
+      objectReference: {fileID: 7388399842426930641, guid: 1b711a7ad1c02c24097a808ac9afb404, type: 3}
     - target: {fileID: 8189880753824231725, guid: cc658eec0b9b7694d8e794b8cb2cc0a5, type: 3}
       propertyPath: healthText
       value: 
