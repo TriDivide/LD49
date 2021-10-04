@@ -79,14 +79,12 @@ public class HealthController : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
-            print("under attack: " + underAttack);
             underAttack = true;
         } 
     }
 
     public void OnCollisionExit2D(Collision2D collision) {
         if (collision.collider.GetType() == typeof(BoxCollider2D) && collision.collider.gameObject.tag == "Guard") {
-            print("under attack: " + underAttack);
             underAttack = false;
         } 
     }

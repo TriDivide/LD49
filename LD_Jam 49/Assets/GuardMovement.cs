@@ -39,7 +39,6 @@ public class GuardMovement : MonoBehaviour {
                 float x = (player.transform.position.x > transform.position.x) ? 1f : -1f;
 
                 if (spriteRenderer != null) {
-                    print("setting the sprite of scientist.");
                     if (x < 0) {
                         spriteRenderer.sprite = left;
                     }
