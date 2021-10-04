@@ -129,7 +129,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 63
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -148,9 +148,9 @@ TextureImporter:
       name: guard_1
       rect:
         serializedVersion: 2
-        x: 123
+        x: 65
         y: 0
-        width: 69
+        width: 63
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -169,13 +169,13 @@ TextureImporter:
       name: guard_2
       rect:
         serializedVersion: 2
-        x: 59
+        x: 129
         y: 0
-        width: 68
+        width: 65
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 3, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
