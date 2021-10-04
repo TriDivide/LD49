@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonEvents : MonoBehaviour
 {
+
+    public Text health;
 
     public void exitGame() {
         Application.Quit();
@@ -22,7 +25,10 @@ public class ButtonEvents : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         UpgradeController s = player.GetComponent<UpgradeController>();
 
+        Color unstableHealth = new Color(255, 69, 69);
+
         if (s.upgradePoints >= 5) {
+            health.GetComponent<Text>.Color = unstableHealth;
             s.upgradePoints -= 5f;
 
             PlayerMovement m = player.GetComponent<PlayerMovement>();
